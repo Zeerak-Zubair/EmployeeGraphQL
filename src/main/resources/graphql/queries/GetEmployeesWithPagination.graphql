@@ -1,0 +1,21 @@
+#Get Employees with Pagination
+query GetEmployeesWithPagination {
+    employeesWithPagination(limit: 5, offset: 10) {
+        totalCount
+        edges {
+            cursor
+            node {
+                id
+                name
+                age
+                className
+            }
+        }
+        pageInfo {
+            hasNextPage
+            hasPreviousPage
+            startCursor
+            endCursor
+        }
+    }
+}

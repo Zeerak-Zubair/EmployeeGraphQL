@@ -1,0 +1,4 @@
+#Delete the employee
+mutation DeleteEmployee {
+    delete(id: 1)
+}

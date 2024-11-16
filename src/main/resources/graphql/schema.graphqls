@@ -1,0 +1,80 @@
+type Employee {
+    id: ID!
+    name: String!
+    age: Int!
+    className: String!
+    subjects: [Subject]
+    attendance: Attendance
+}
+
+type Attendance {
+    totalDays: Int!
+    presentDays: Int!
+}
+
+type Subject {
+    name: String!
+}
+
+type EmployeeConnection {
+    totalCount: Int!
+    edges: [EmployeeEdge!]!
+    pageInfo: PageInfo!
+}
+
+type EmployeeEdge {
+    cursor: String!
+    node: Employee!
+}
+
+type PageInfo {
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String!
+    endCursor: String!
+}
+
+type Query {
+    # Fetch employees using pagination
+    employeesWithPagination(limit: Int, offset: Int): EmployeeConnection!
+
+    # Fetch a list of all employees
+    employees: [Employee]
+
+    # Fetch an employee by ID
+    employeeById(id: ID!): Employee
+
+    # Fetch by age
+    employeeByAge(age: Int): [Employee]
+
+    # Fetch by name
+    employeeByName(name: String): [Employee]
+
+    # Fetch by class name
+    employeeByClassName(className: String): [Employee]
+}
+
+input EmployeeInput {
+    name: String!
+    age: Int!
+    className: String! # Matches EmployeeAggregate field
+    subjects: [SubjectInput]
+    attendance: AttendanceInput
+}
+
+input SubjectInput {
+    name: String!
+}
+
+input AttendanceInput {
+    totalDays: Int!
+    presentDays: Int!
+}
+
+type Mutation {
+    create(name: String, age: Int, className: String, subjects: [String], totalDays: Int, presentDays: Int): Employee
+    update(id: ID, name: String!, age: Int!, className: String!): Employee
+    delete(id: ID): Boolean
+}
+
+

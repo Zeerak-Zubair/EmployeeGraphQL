@@ -1,0 +1,11 @@
+# Find employeeByName
+query GetEmployeeByName {
+    employeeByName(name: "Jane Smith") {
+        id
+        name
+        className
+        subjects {
+            name
+        }
+    }
+}

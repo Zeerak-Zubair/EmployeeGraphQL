@@ -1,0 +1,9 @@
+# Find employeeByAge
+query GetEmployeeByAge {
+    employeeByAge(age: 30) {
+        id
+        name
+        age
+        className
+    }
+}

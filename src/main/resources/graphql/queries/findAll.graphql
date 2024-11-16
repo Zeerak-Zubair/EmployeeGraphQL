@@ -1,0 +1,16 @@
+# Find All
+query GetEmployees {
+    employees {
+        id
+        name
+        age
+        className
+        subjects {
+            name
+        }
+        attendance {
+            totalDays
+            presentDays
+        }
+    }
+}

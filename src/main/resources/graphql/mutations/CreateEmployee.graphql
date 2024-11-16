@@ -1,0 +1,23 @@
+#Create an employee
+mutation CreateEmployee {
+    create(
+        name: "John Doe",
+        age: 25,
+        className: "Grade 1",
+        subjects: ["Mathematics", "Science"],
+        totalDays: 200,
+        presentDays: 180
+    ) {
+        id
+        name
+        age
+        className
+        subjects{
+            name
+        }
+        attendance {
+            totalDays
+            presentDays
+        }
+    }
+}

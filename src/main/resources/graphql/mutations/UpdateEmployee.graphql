@@ -1,0 +1,8 @@
+mutation UpdateEmployee {
+    update(id: 2, name: "John Doe", age: 30, className: "Class Z") {
+        id
+        name
+        age
+        className
+    }
+}

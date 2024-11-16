@@ -1,0 +1,9 @@
+# Find By Id
+query GetEmployeeById{
+    employeeById(id: 3){
+        id
+        name
+        age
+        className
+    }
+}
